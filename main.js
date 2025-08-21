@@ -4,7 +4,11 @@ const listaJogos = [
     {name: "Globle", link: "https://globle-game.com/"},
     {name: "Nerdle", link: "https://nerdlegame.com/"},
     {name: "Flagle", link: "https://www.flagle.io/"},
-    {name: "Conexo", link: "https://conexo.ws/pt/"}
+    {name: "Conexo", link: "https://conexo.ws/pt/"},
+    {name: "Letroso", link: "https://letroso.com/pt/"},
+    {name: "Palavras cruzadas", link: "https://g1.globo.com/jogos/palavras-cruzadas/"},
+    {name: "Travle", link: "https://travle.earth/"},
+    {name: "Soletra", link: "https://g1.globo.com/jogos/soletra/"}
 ];
 
 const jogos = JSON.parse(localStorage.getItem("jogos") || "[]");
