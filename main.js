@@ -11,12 +11,15 @@ const listaJogos = [
     {name: "Soletra", link: "https://g1.globo.com/jogos/soletra/"}
 ];
 
-const jogos = JSON.parse(localStorage.getItem("jogos") || "[]");
-if (!jogos || !jogos[0] || !jogos[0].name) {
-    listaJogos.forEach(jogo => {
-        jogos.push({name: jogo.name, link:jogo.link, state: false});
-    });
-}
+let jogos = JSON.parse(localStorage.getItem("jogos") || "[]");
+
+listaJogos.forEach(jogo => {
+    if (!jogos.some(j => j.name === jogo.name)) {
+        jogos.push({name: jogo.name, link: jogo.link, state: false});
+    }
+});
+
+localStorage.setItem("jogos", JSON.stringify(jogos));
 
 function carregarJogos() {
     jogos.forEach(jogo => {
