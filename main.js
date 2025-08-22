@@ -53,3 +53,15 @@ function sortJogos() {
     container.innerHTML = "";
     carregarJogos();
 }
+
+const botaoRestart = document.getElementById("botao-restart");
+botaoRestart.addEventListener("click", () => {
+    localStorage.removeItem("jogos");
+    jogos = JSON.parse(localStorage.getItem("jogos") || "[]");
+    listaJogos.forEach(jogo => {
+        if (!jogos.some(j => j.name === jogo.name)) {
+            jogos.push({name: jogo.name, link: jogo.link, state: false});
+        }
+    });
+    sortJogos();
+});
